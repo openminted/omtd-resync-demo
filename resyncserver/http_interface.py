@@ -34,6 +34,8 @@ class HTTPInterface(object):
         restful-web-services-with-python-dynamic-languages-conference
     """
 
+    STATIC_FILE_PATH = os.path.join(os.path.dirname(__file__), "static")
+
     def __init__(self, source):
         """Initialize HTTP interface with default settings and handlers."""
         super(HTTPInterface, self).__init__()
@@ -44,8 +46,8 @@ class HTTPInterface(object):
         self.settings = dict(
             title=u"ResourceSync Server",
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
-            static_path=Source.STATIC_FILE_PATH,
-            source_path=source.config['resource_dir'],
+            static_path=self.STATIC_FILE_PATH,
+            source_path=source.config['source_path'],
             autoescape=None,
         )
         self.handlers = [
@@ -94,6 +96,7 @@ class HomeHandler(BaseRequestHandler):
 
     def get(self):
         """Implement GET for homepage."""
+        print("Received request at: " + self.request.path)
         self.render("home.html",
                     resource_count=self.source.resource_count,
                     source=self.source)

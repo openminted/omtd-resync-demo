@@ -4,7 +4,13 @@ import validators
 from rspub.core.rs_paras import RsParameters
 
 
-class ServerRsParameters(RsParameters):
+class ElasticRsParameters(RsParameters):
+
+    def __init__(self, **kwargs):
+        super(ElasticRsParameters, self).__init__(**kwargs)
+        self.publisher_name = kwargs['publisher_name']
+        self.elastic_index = kwargs['elastic_index']
+        self.elastic_resource_type = kwargs['elastic_resource_type']
 
     # def abs_metadata_dir(self) -> str:
     #     """
@@ -36,7 +42,13 @@ class ServerRsParameters(RsParameters):
         if parts[0] not in ["http", "https"]:  # scheme
             raise ValueError("URL schemes allowed are 'http' or 'https'. Given: '%s'" % value)
         is_valid_domain = validators.domain(parts.hostname)  #hostname
-        is_valid_port = is_int(parts.port)
+
+        if parts.port is None:
+            is_valid_port = True
+
+        else:
+            is_valid_port = is_int(parts.port)
+
         if not is_valid_domain:
             raise ValueError("URL has invalid domain name: '%s'. Given: '%s'" % (parts.hostname, value))
         if not is_valid_port:

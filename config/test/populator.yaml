@@ -1,0 +1,7 @@
+populator:
+  publishers:
+    - name: elsevier
+      resources: /Users/giorgio/Desktop/dit/resources/elsevier
+    - name: springer
+      resources: /Users/giorgio/Desktop/dit/resources/springer
+  subfolders: ['.']

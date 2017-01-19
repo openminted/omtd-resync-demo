@@ -1,0 +1,17 @@
+# Springer configuration
+
+executor:
+  publisher_name: springer
+  resource_dir: /Users/giorgio/Desktop/dit/
+  metadata_dir: metadata/springer
+  url_prefix: http://giorgios-macbook-pro.local:8888
+  #select_mode: selector
+  max_items_in_list: 10000
+  zero_fill_filename: 4
+  is_saving_pretty_xml: True
+  is_saving_sitemaps: True
+  has_wellknown_at_root: True
+  description_dir: /Users/giorgio/Desktop/dit
+  elastic_index: resourcesync
+  elastic_resource_type: resource
+  #selector_file: /Users/giorgio/Desktop/rspub-selectors/dit-selector.csv

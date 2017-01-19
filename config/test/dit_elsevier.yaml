@@ -1,19 +1,17 @@
-# The Data Interoperability Toolkit ResourceSync simulator configuration
+# Elsevier configuration
 
-##### Source Configuration #####
-
-source:
-  server_name: Data Interoperability Toolkit
-  resource_dir: /Users/giorgio/Desktop/dit/
+executor:
+  publisher_name: elsevier
+  resource_dir: /Users/giorgio/Desktop/dit
   metadata_dir: metadata/elsevier
   url_prefix: http://giorgios-macbook-pro.local:8888
-  port: 8888
   #select_mode: selector
-  max_items_in_list: 50000
+  max_items_in_list: 10000
   zero_fill_filename: 4
   is_saving_pretty_xml: True
   is_saving_sitemaps: True
   has_wellknown_at_root: True
   description_dir: /Users/giorgio/Desktop/dit
-  elastic_index: resourcesync-elsevier
+  elastic_index: resourcesync
+  elastic_resource_type: resource
   #selector_file: /Users/giorgio/Desktop/rspub-selectors/dit-selector.csv

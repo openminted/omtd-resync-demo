@@ -15,10 +15,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 from tornado import gen
 
-from resyncserver.elastic import elastic_generator
 from resyncserver.elastic.elastic_generator import ElasticGenerator
+from resyncserver.elastic.elastic_rs_paras import ElasticRsParameters
 from resyncserver.observer import Observable
-from resyncserver.server_rs_paras import ServerRsParameters
 
 
 class DynamicResourceListBuilder(object):
@@ -27,17 +26,18 @@ class DynamicResourceListBuilder(object):
     def __init__(self, source):
         """Initialize the DynamicResourceListBuilder."""
         self.source = source
-        self.config = source.config
+        self.config = self.source.publish_configs
         self.logger = logging.getLogger('resource_list_builder')
         self.executor = self.source.executor
 
     def bootstrap(self):
         """Bootstrapping procedures implemented in subclasses."""
+        # todo implement a policy for resourcelist regeneration, this will not triggered in the source bootstrap
         #self.generate()
         pass
 
     @gen.coroutine
-    def generate(self):
+    def generate(self, config):
         """Generate a resource_list (snapshot from the source)."""
         then = time.time()
         self.new_resource_list()
@@ -50,8 +50,8 @@ class DynamicResourceListBuilder(object):
         print(str(f))
 
     def res_gen(self):
-        rs_params = ServerRsParameters(**self.source.config)
-        gener = ElasticGenerator(rs_params, index=elastic_generator.INDEX, doc_type=elastic_generator.RESOURCE_TYPE)
+        rs_params = ElasticRsParameters(**self.source.config)
+        gener = ElasticGenerator(rs_params)
         return gener.generate_resourcelist()
 
 
@@ -74,7 +74,7 @@ class Source(Observable):
         self.changememory = None  # change memory implementation
         self.no_events = 0
         self._executor = ThreadPoolExecutor(max_workers=4)
-        self.base_uri = config['url_prefix']
+        self.publish_configs = self.config['publisher_configs']
 
         self.add_resource_list_builder(DynamicResourceListBuilder(self))
 
@@ -110,6 +110,7 @@ class Source(Observable):
         if self.has_changememory:
             self.changememory.bootstrap()
         if self.has_resource_list_builder:
+            # todo do it for all of them
             self.resource_list_builder.bootstrap()
         self._log_stats()
 
@@ -117,8 +118,8 @@ class Source(Observable):
 
     @property
     def describedby_uri(self):
-        """Description of Source, here assume base_uri."""
-        return self.base_uri
+        """Description of Source"""
+        return '/'
 
     @property
     def source_description_uri(self):
@@ -129,12 +130,7 @@ class Source(Observable):
         """
         if 'source_description_uri' in self.config:
             return self.config['source_description_uri']
-        return self.base_uri + '/.well-known/resourcesync'
-
-    @property
-    def capability_list_uri(self):
-        """URI of Capability List Document."""
-        return self.base_uri + '/capabilitylist.xml'
+        return '/.well-known/resourcesync'
 
     @property
     def resource_count(self):

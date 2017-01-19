@@ -36,7 +36,9 @@ setup(
         "tornado>=4.4.2",
         "pyyaml",
         "watchdog>=0.8.3",
-        "rspub-core>=0.1", 'logutils', 'elasticsearch'
+        "rspub-core>=0.1",
+        'logutils',
+        "elasticsearch>=1.0.0,<2.0.0"
     ],
     test_suite="resyncserver.test",
 )

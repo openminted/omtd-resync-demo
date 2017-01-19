@@ -3,13 +3,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
     <title>{{ escape(handler.settings["title"]) }}</title>
-    <link rel="stylesheet" href="{{source.base_uri}}{{ static_url("resourcesync.css") }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ static_url("resourcesync.css") }}" type="text/css"/>
     {% block head %}{% end %}
   </head>
   <body>
     <div id="body">
       <div id="header">
-        <h1><a href="/">ResourceSync Server</a></h1>
+        <h1><a href="/">DIT ResourceSync Server</a></h1>
       </div>
       <div id="content">{% block body %}{% end %}</div>
     </div>

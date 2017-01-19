@@ -4,7 +4,6 @@
 
 source:
   server_name: Data Interoperability Toolkit
-  gen_files: ['config/elsevier','config/springer']
-  url_prefix: http://giorgios-macbook-pro.local:8888
+  publisher_configs: ['config/dit_elsevier.yaml','config/dit_springer.yaml']
   port: 8888
-  resource_dir: /Users/giorgio/Desktop/dit/
+  source_path: /Users/giorgio/Desktop/dit
