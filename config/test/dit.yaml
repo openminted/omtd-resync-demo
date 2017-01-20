@@ -1,9 +1,9 @@
-# The Data Interoperability Toolkit ResourceSync simulator configuration
+# The Data Interoperability Toolkit ResourceSync configuration
 
 ##### Source Configuration #####
 
 source:
   server_name: Data Interoperability Toolkit
-  publisher_configs: ['config/dit_elsevier.yaml','config/dit_springer.yaml']
+  publisher_configs: ['config/test/dit_elsevier_meta.yaml','config/test/dit_springer_meta.yaml', 'config/test/dit_elsevier_pdf.yaml','config/test/dit_springer_pdf.yaml']
   port: 8888
   source_path: /Users/giorgio/Desktop/dit

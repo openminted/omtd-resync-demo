@@ -7,6 +7,7 @@ resync-py-server: ResourceSync tool for exposing a changing Web data source.
 Created by Giorgio Basile on 09-01-2017
 """
 import optparse
+import os
 
 import yaml
 import logging
@@ -51,6 +52,7 @@ def main():
 
     source = Source(config, args.port)
     source.bootstrap()
+    r = os.path.abspath(config['publisher_configs'][0])
 
     http_interface = HTTPInterface(source)
     try:

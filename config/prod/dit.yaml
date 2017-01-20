@@ -1,0 +1,9 @@
+# The Data Interoperability Toolkit ResourceSync configuration
+
+##### Source Configuration #####
+
+source:
+  server_name: Data Interoperability Toolkit
+  publisher_configs: ['config/prod/dit_elsevier_meta.yaml','config/prod/dit_elsevier_pdf.yaml']
+  port: 8888
+  source_path: /data/core/dit/data/

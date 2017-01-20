@@ -1,11 +1,9 @@
 populator:
   publishers:
     - name: elsevier
-      resources: /Users/giorgio/Desktop/dit/elsevier
-    - name: springer
-      resources: /Users/giorgio/Desktop/dit/springer
+      resources: /data/core/dit/data/elsevier
   subfolders: ['metadata', 'pdf']
-  elastic_host: localhost
+  elastic_host: core-index01.open.ac.uk
   elastic_port: 9200
   elastic_index: resourcesync
   elastic_resource_type: resource
