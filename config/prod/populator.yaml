@@ -2,7 +2,7 @@ populator:
   publishers:
     - name: elsevier
       resources: /data/core/dit/data/elsevier
-  subfolders: ['metadata', 'pdf']
+      subfolders: ['metadata', 'pdf']
   elastic_host: core-index01.open.ac.uk
   elastic_port: 9200
   elastic_index: resourcesync

@@ -2,9 +2,10 @@ populator:
   publishers:
     - name: elsevier
       resources: /Users/giorgio/Desktop/dit/elsevier
+      subfolders: ['metadata', 'pdf']
     - name: springer
       resources: /Users/giorgio/Desktop/dit/springer
-  subfolders: ['metadata', 'pdf']
+      subfolders: ['metadata', 'pdf']
   elastic_host: localhost
   elastic_port: 9200
   elastic_index: resourcesync
