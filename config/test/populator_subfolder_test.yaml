@@ -8,7 +8,6 @@ populator:
       resources: /Users/giorgio/Desktop/dit/elsevier/pdf/000
       subfolders: ['aHR0cDovL2FwaS5lbHNldmllci5jb20vY29udGVudC9hcnRpY2xlL3BpaS']
       type: pdf
-  limit: 3
   elastic_host: localhost
   elastic_port: 9200
   elastic_index: resourcesync

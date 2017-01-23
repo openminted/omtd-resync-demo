@@ -130,7 +130,7 @@ class Source(Observable):
         """
         if 'source_description_uri' in self.config:
             return self.config['source_description_uri']
-        return '/.well-known/resourcesync'
+        return '.well-known/resourcesync'
 
     @property
     def resource_count(self):

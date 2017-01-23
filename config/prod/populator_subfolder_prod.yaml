@@ -2,11 +2,11 @@ populator:
   publishers:
     - name: elsevier
       resources: /data/core/dit/data/elsevier/metadata/000
-      subfolders: ['aHR0cDovL2FwaS5lbHNldmllci5jb20vY29udGVudC9hcnRpY2xlL3BpaS']
+      subfolders: ['']
       type: metadata
     - name: elsevier
       resources: /data/core/dit/data/elsevier/pdf/000
-      subfolders: ['aHR0cDovL2FwaS5lbHNldmllci5jb20vY29udGVudC9hcnRpY2xlL3BpaS']
+      subfolders: ['']
       type: pdf
   elastic_host: core-index01.open.ac.uk
   elastic_port: 9200

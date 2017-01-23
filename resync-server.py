@@ -22,7 +22,7 @@ DEFAULT_LOG_FILE = 'config/logging.yaml'
 
 def main():
 
-    # Define simulator options
+    # Define server options
     parser = optparse.OptionParser(description="ResourceSync Server",
                                    usage='usage: %prog [options]  (-h for help)',
                                    version='%prog '+__version__)

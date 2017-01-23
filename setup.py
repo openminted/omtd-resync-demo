@@ -14,7 +14,7 @@ setup(
     version=version,
     packages=['resyncserver'],
     package_data={'resyncserver': ['static/*','templates/*']},
-    scripts=['resync-server'],
+    scripts=['resync-server.py'],
     classifiers=["Development Status :: 4 - Beta",
                  "Intended Audience :: Developers",
                  "Operating System :: OS Independent",
@@ -32,7 +32,7 @@ setup(
     description='ResourceSync server',
     long_description=open('README.md').read(),
     install_requires=[
-        "resync>=0.9.3",
+        "resync>=1.0.1",
         "tornado>=4.4.2",
         "pyyaml",
         "watchdog>=0.8.3",

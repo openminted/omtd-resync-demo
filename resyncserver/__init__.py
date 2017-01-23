@@ -1,1 +1,1 @@
-"""ResourceSync simulator module."""
+"""ResourceSync server module."""

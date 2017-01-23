@@ -125,7 +125,7 @@ class ResourceHandler(BaseRequestHandler):
         if not os.path.isfile(file_path):
             self.send_error(404)
         else:
-            payload = open(file_path).read()
+            #payload = open(file_path, "r", encoding="utf-8").read()
 
             if file_path.endswith(".well-known/resourcesync"):
                 self.set_header("Content-Type", "application/xml")
@@ -137,4 +137,9 @@ class ResourceHandler(BaseRequestHandler):
 
             self.set_header("Content-Length", os.path.getsize(file_path))
             self.set_header("Last-Modified", datetime.fromtimestamp(os.path.getmtime(file_path)))
-            self.write(payload)
+            with open(file_path, 'rb') as f:
+                while 1:
+                    data = f.read(16384)  # or some other nice-sized chunk
+                    if not data: break
+                    self.write(data)
+            self.finish()
