@@ -10,7 +10,7 @@ else:
     raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE))
 
 setup(
-    name='resync-omtd-demo',
+    name='omtd-resync-demo',
     version=version,
     packages=['resyncserver'],
     package_data={'resyncserver': ['static/*','templates/*']},
@@ -32,13 +32,12 @@ setup(
     description='ResourceSync generator and server demo',
     long_description=open('README.md').read(),
     install_requires=[
-        "resync>=1.0.1",
         "tornado>=4.4.2",
         "pyyaml",
         "watchdog>=0.8.3",
-        "rspub-core>=0.1",
         'logutils',
         "elasticsearch>=1.0.0,<2.0.0"
     ],
+    dependency_links=["https://github.com/EHRI/rspub-core/tarball/master#egg=rspub-core", "https://github.com/EHRI/resync/tarball/ehribranch#egg=resyncehri"],
     test_suite="resyncserver.test",
 )

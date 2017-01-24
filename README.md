@@ -1,4 +1,4 @@
-OpenMinTeD ResourceSync server demo
+OpenMinTeD ResourceSync demo
 ===================================
 
 A Python implementation of a ResourceSync generator and server provided by the OpenMinTeD project, using 
@@ -26,7 +26,7 @@ Elasticsearch, given a configuration file specifying an Elasticsearch node addre
 To run the populator, simply write:
 
 ```
-cd resync-omtd-demo
+cd omtd-resync-demo
 python resyncserver/elastic/elastic_populator --config=/path/to/config
 ```
 
@@ -47,7 +47,7 @@ updated if already existing.
 To run the generator, simply write:
 
 ```
-cd resync-omtd-demo
+cd omtd-resync-demo
 python resyncserver/elastic/elastic_generator --config=/path/to/config
 ```
 
@@ -59,7 +59,7 @@ folder provided through the configuration file is exposed through the same Torna
 To run the server, simply write:
 
 ```
-cd resync-omtd-demo
+cd omtd-resync-demo
 python resync-server.py --config=/path/to/config
 ```
 
