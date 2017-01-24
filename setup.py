@@ -10,7 +10,7 @@ else:
     raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE))
 
 setup(
-    name='resync-server',
+    name='resync-omtd-demo',
     version=version,
     packages=['resyncserver'],
     package_data={'resyncserver': ['static/*','templates/*']},
@@ -29,7 +29,7 @@ setup(
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
     author='Giorgio Basile',
     author_email='giorgio.basile@open.ac.uk',
-    description='ResourceSync server',
+    description='ResourceSync generator and server demo',
     long_description=open('README.md').read(),
     install_requires=[
         "resync>=1.0.1",

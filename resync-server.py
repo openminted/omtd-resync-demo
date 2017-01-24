@@ -2,7 +2,7 @@
 # encoding: utf-8
 """
 
-resync-py-server: ResourceSync tool for exposing a changing Web data source.
+ResourceSync tool for exposing a changing Web data source.
 
 Created by Giorgio Basile on 09-01-2017
 """
