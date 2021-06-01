@@ -12,7 +12,7 @@ PyYAML==3.12
 requests==2.13.0
 six==1.10.0
 tornado==4.4.2
-urllib3==1.20
+urllib3==1.26.5
 validators==0.11.2
 watchdog==0.8.3
 -e git+https://github.com/EHRI/rspub-core@master#egg=rspub-core
